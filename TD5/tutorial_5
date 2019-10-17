@@ -1,0 +1,80 @@
+#include <iostream>
+
+
+
+class ListNode {
+  public:
+    int data;
+    ListNode *next;
+
+    // create a single node with data d
+    // and optional next node
+    ListNode(int d, ListNode* nxt = NULL){
+      data = d;
+      next = nxt;
+    }
+
+    // delete this node and all successor nodes
+    ~ListNode(){
+
+    }
+};
+
+class LinkedList {
+  private:
+    ListNode *first, *last;
+
+  public:
+    // create an empty list
+    LinkedList(){
+      first = NULL;
+      last = NULL;
+    }
+
+    // destroy the list pointed to by first (if any)
+    ~LinkedList(){
+      if (first!= NULL){
+        delete first;
+      }
+    }
+
+    // display the list on std::cout
+    void display();
+
+    // add an element to the end of the list. Should be O(1).
+    void append(int d){
+      if (last == NULL){
+        first = new ListNode(d);
+        last = first;
+      } else{
+        last->next = new ListNode(d);
+        last = last->next;
+      }
+    }
+
+    // add an element to the start of the list. Should be O(1).
+    void prepend(int d){
+      if (first == NULL){
+        first = new ListNode(d);
+        last = first;
+      } else{
+        ListNode* coucou = new ListNode(d);
+        coucou->next=first;
+        first = coucou;
+      }
+    }
+
+    // return a *new* list that contains all elements smaller than
+    // a threshold in this list
+    LinkedList* filterSmaller(int threshold){
+      Linkedlist a;
+
+    }
+};
+
+int main(){
+  LinkedList l;
+  
+
+  return 0;
+}
